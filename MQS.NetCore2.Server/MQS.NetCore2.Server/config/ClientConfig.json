@@ -1,0 +1,5 @@
+{
+  "WaitObjectTime": 600,
+  "Memory_Compact": true,
+  "Memory_Compact_Time": 30
+}

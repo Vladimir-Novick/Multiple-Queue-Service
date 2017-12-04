@@ -1,0 +1,226 @@
+﻿@using System.Text
+@{
+    ViewBag.Title = "Activies by Company ";
+}
+
+
+
+
+<style>
+    .child-opener-image {
+        cursor: pointer;
+    }
+
+    .child-opener-image-column {
+        text-align: center;
+    }
+
+    .jtable-dialog-form {
+        min-width: 220px;
+    }
+
+        .jtable-dialog-form input[type="text"] {
+            min-width: 200px;
+        }
+</style>
+
+@section Scripts {
+    <script src="~/js/jquery-ui.js" @*asp-append-version="true" *@></script>
+    <link href="/js/jtable/themes/vlad/jtable.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jtable/vlad.jquery.jtable.js"></script>
+
+}
+
+<br />
+<br />
+
+<div id="ActivitiesTableContainer"></div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#ActivitiesTableContainer').jtable({
+            title: 'Activite Keys By Company ',
+            paging: true,
+            sorting: true,
+            defaultSorting: 'CompanyKey ASC',
+            pageSize: 50,
+            actions: {
+                listAction: '@Url.Action("GetCompanyList")',
+            },
+            fields: {
+                CompanyKey: {
+                    title: 'Company ID',
+                    Key: true,
+                    sorting: true,
+                    width: '30%'
+                }
+                ,
+                Count: {
+                    title: 'Active Keys',
+                    create: false,
+                    edit: false,
+                    sorting: true,
+                    width: '20%',
+                    type: 'number'
+                },
+
+
+                Keys: {
+                    title: '',
+                    width: '5%',
+                    sorting: false,
+                    hideTitle: true,
+                    command: true,
+                    edit: false,
+                    listClass: 'jtable-column-button',
+                    create: false,
+                                listClass: 'child-opener-image-column',
+                                    display: function (KeyData) {
+
+                                        var $img = $('<img class="child-opener-image" src="/images/note.png" title="" />');
+
+                                        $img.click(function () {
+                                            $('#ActivitiesTableContainer').jtable('openChildTable',
+                                                $img.closest('tr'),
+                                                {
+                                                    title: 'Company ID: ' + KeyData.record.CompanyKey,
+                                                    paging: true,
+                                                    sorting: true,
+                                                    defaultSorting: 'Date_Create DESC',
+                                                    actions: {
+                                                        listAction: '@Url.Action("GetQueList")?CompanyKey=' + KeyData.record.CompanyKey,
+                                                    },
+
+                                                    fields: {
+
+
+
+                                                        Date_Create: {
+                                                            title: 'Created',
+                                                            create: false,
+                                                            edit: false,
+                                                            sorting: true,
+                                                            type: 'date',
+                                                            displayFormat: ' HH:TT:ss',
+                                                            list: true,
+                                                            width: '20%'
+                                                        },
+                                                        Key: {
+                                                            title: 'Key',
+                                                            Key: true,
+                                                            sorting: true,
+                                                            width: '35%'
+                                                        },
+                                                        MyQueueCount: {
+                                                            title: 'Queue',
+                                                            Key: false,
+                                                            sorting: true,
+                                                            width: '10%'
+                                                        },
+                                                        JMyQueueCount: {
+                                                            title: 'JQueue',
+                                                            Key: false,
+                                                            sorting: true,
+                                                            width: '10%'
+                                                        },
+                                                      
+
+                                                    Opened: {
+                                                        title: 'Opened',
+                                                        Key: false,
+                                                        sorting: true,
+                                                        width: '10%'
+                                                    },
+                                                    Total: {
+                                                        title: 'Total',
+                                                        Key: false,
+                                                        sorting: true,
+                                                        width: '10%'
+                                                    },
+
+                                                                 Suppliers: {
+                    title: '',
+                    width: '5%',
+                    sorting: false,
+                    edit: false,
+                    listClass: 'jtable-column-button',
+                    create: false,
+                                listClass: 'child-opener-image-column',
+                                    display: function (KeyData) {
+
+                                        var $img = $('<img class="child-opener-image" src="/images/group_rank.png" title="" />');
+
+                                        $img.click(function () {
+                                            $('#ActivitiesTableContainer').jtable('openChildTable',
+                                                $img.closest('tr'),
+                                                {
+                                                    title: ' Suppliers by Key: ' + KeyData.record.Key,
+                                                    paging: true,
+                                                    sorting: true,
+                                                    defaultSorting: 'Supplier ASC',
+                                                    actions: {
+                                                        listAction: '@Url.Action("GetSuppliers")?Key=' + KeyData.record.Key,
+                                                    },
+
+                                                    fields: {
+
+                                                        zero: {
+                                                            title: '',
+                                                            create: false,
+                                                            edit: false,
+                                                            sorting: false,
+                                                            width: '50%'
+
+                                                        },
+
+
+                                                        Supplier: {
+                                                            title: 'Supplier',
+                                                            create: false,
+                                                            edit: false,
+                                                            sorting: true,
+                                                            list: true,
+                                                            width: '30%'
+                                                        },
+                                                        Status: {
+                                                            title: 'Status',
+                                                            sorting: true,
+                                                            width: '20%'
+                                                        }
+                                                    }
+                                                }, function (data) { //opened handler
+                                                    data.childTable.jtable('load');
+                                                });
+                                        });
+                                        //Return image to show on the person row
+                                        return $img;
+                                    }
+                }
+
+
+                                                    }
+                                                }, function (data) { //opened handler
+                                                    data.childTable.jtable('load');
+                                                });
+                                        });
+                                        //Return image to show on the person row
+                                        return $img;
+                                    }
+                }
+
+
+
+
+            }
+        });
+
+
+         $('#ActivitiesTableContainer').jtable('load');
+
+    });
+
+</script>
+<br />
+<hr />
+

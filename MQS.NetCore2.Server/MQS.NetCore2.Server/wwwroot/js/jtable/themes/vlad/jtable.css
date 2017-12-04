@@ -1,0 +1,1147 @@
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Open Sans Light"), local("OpenSans-Light"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/DXI1ORHCpsQm3Vp6mXoaTRa1RVmPjeKy21_GQJaLlJI.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 300;
+    src: local("Open Sans Light Italic"), local("OpenSansLight-Italic"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/PRmiXeptR36kaC0GEAetxrsuoFAk0leveMLeqYtnfAY.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Open Sans"), local("OpenSans"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/u-WUoqrET9fUeobQW7jkRT8E0i7KZn-EPnyo3HZu7kw.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 400;
+    src: local("Open Sans Italic"), local("OpenSans-Italic"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/xjAJXh38I15wypJXxuGMBtIh4imgI8P11RFo6YPCPC0.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    src: local("Open Sans Semibold"), local("OpenSans-Semibold"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSha1RVmPjeKy21_GQJaLlJI.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 600;
+    src: local("Open Sans Semibold Italic"), local("OpenSans-SemiboldItalic"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/PRmiXeptR36kaC0GEAetxmWeb5PoA5ztb49yLyUzH1A.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Open Sans Bold"), local("OpenSans-Bold"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzBa1RVmPjeKy21_GQJaLlJI.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 700;
+    src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/PRmiXeptR36kaC0GEAetxoUt79146ZFaIJxILcpzmhI.woff") format("woff");
+}
+
+div.jtable-main-container {
+    position: relative;
+}
+
+    div.jtable-main-container div.jtable-title {
+        position: relative;
+        text-align: left;
+    }
+
+        div.jtable-main-container div.jtable-title table {
+            width: 100%;
+        }
+
+span.jtable-page-size-change {
+    margin-left: 5px;
+}
+
+div.jtable-main-container div.jtable-title .jtable-close-button {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+div.jtable-main-container table.jtable {
+    width: 100%;
+}
+
+    div.jtable-main-container table.jtable thead th {
+        text-align: left;
+        vertical-align: middle;
+    }
+
+        div.jtable-main-container table.jtable thead th.jtable-column-header {
+            height: 30px;
+        }
+
+            div.jtable-main-container table.jtable thead th.jtable-column-header div.jtable-column-header-container {
+                position: relative;
+            }
+
+                div.jtable-main-container table.jtable thead th.jtable-column-header div.jtable-column-header-container span.jtable-column-header-text {
+                    display: inline-block;
+                }
+
+                div.jtable-main-container table.jtable thead th.jtable-column-header div.jtable-column-header-container div.jtable-column-resize-handler {
+                    cursor: col-resize;
+                    height: 30px;
+                    position: absolute;
+                    right: -8px;
+                    top: -2px;
+                    width: 8px;
+                    z-index: 2;
+                }
+
+        div.jtable-main-container table.jtable thead th.jtable-command-column-header {
+            text-align: center;
+            border-right: 1px solid #a3a7ac;
+            width:32px !important;
+        }
+
+        div.jtable-main-container table.jtable thead th.jtable-fixed-column-header {
+            text-align: center;
+            border-right: 1px solid #a3a7ac;
+            width: 32px !important;
+        }
+
+        div.jtable-main-container table.jtable thead th.jtable-column-header-selecting {
+            text-align: center;
+            width: 25px;
+        }
+
+            div.jtable-main-container table.jtable thead th.jtable-column-header-selecting input {
+                cursor: pointer;
+            }
+
+        div.jtable-main-container table.jtable thead th.jtable-column-header-sortable {
+            cursor: pointer;
+            border-right: 1px solid #a3a7ac;
+            overflow: hidden;
+        }
+
+    div.jtable-main-container table.jtable tbody tr > td .jtable-command-button {
+        border: medium none;
+        cursor: pointer;
+        display: inline;
+        width:32px;
+        height:32px;
+    }
+
+        div.jtable-main-container table.jtable tbody tr > td .jtable-command-button span {
+            display: none;
+        }
+
+    div.jtable-main-container table.jtable tbody tr > td.jtable-command-column {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    div.jtable-main-container table.jtable tbody tr > td.jtable-selecting-column {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+        div.jtable-main-container table.jtable tbody tr > td.jtable-selecting-column input {
+            cursor: pointer;
+        }
+
+    div.jtable-main-container table.jtable tbody tr.jtable-no-data-row {
+        text-align: center;
+    }
+
+/* -----------------------------------------------------------------*/
+
+div.jtable-main-container div.jtable-bottom-panel {
+    min-height: 24px;
+    position: relative;
+}
+
+div.jtable-main-container div.jtable-top-panel {
+    background-color: white !important;
+}
+
+div.jtable-main-container div.jtable-bottom-panel div.jtable-left-area {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+div.jtable-main-container div.jtable-bottom-panel div.jtable-right-area {
+    bottom: 0;
+    position: absolute;
+    right: 25px;
+    top: 0;
+}
+
+div.jtable-main-container div.jtable-bottom-panel div.jtable-right-area_refresh {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width:32px;
+}
+
+div.jtable-main-container div.jtable-bottom-panel .jtable-page-list {
+    display: inline-block;
+}
+
+    div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-space, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-first, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-last, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-previous, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-next, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-active {
+        cursor: pointer;
+        display: inline-block;
+        padding: 2px 5px;
+    }
+
+    div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-space, div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-number-active {
+        cursor: default;
+    }
+
+    div.jtable-main-container div.jtable-bottom-panel .jtable-page-list .jtable-page-info {
+        display: inline-block;
+        margin-left: 5px;
+        padding: 2px;
+    }
+
+div.jtable-main-container div.jtable-bottom-panel span.jtable-add-record {
+    display: inline-block;
+}
+
+    div.jtable-main-container div.jtable-bottom-panel span.jtable-add-record a {
+        text-decoration: none;
+    }
+
+        div.jtable-main-container div.jtable-bottom-panel span.jtable-add-record a:hover {
+            text-decoration: underline;
+        }
+
+div.jtable-main-container div.jtable-column-resize-bar {
+    background-color: #000000;
+    display: none;
+    opacity: 0.5;
+    position: absolute;
+    width: 1px;
+}
+
+div.jtable-main-container div.jtable-column-selection-container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C8C8C8;
+    color: #000000;
+    display: none;
+    padding: 5px;
+    position: absolute;
+    z-index: 101;
+}
+
+    div.jtable-main-container div.jtable-column-selection-container ul.jtable-column-select-list {
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+    }
+
+        div.jtable-main-container div.jtable-column-selection-container ul.jtable-column-select-list li {
+            margin: 0;
+            padding: 2px 0;
+        }
+
+            div.jtable-main-container div.jtable-column-selection-container ul.jtable-column-select-list li label span {
+                margin-left: 4px;
+                position: relative;
+                top: -1px;
+            }
+
+            div.jtable-main-container div.jtable-column-selection-container ul.jtable-column-select-list li input[type="checkbox"] {
+                cursor: pointer;
+            }
+
+form.jtable-dialog-form div.jtable-input-field-container {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 2px 0 3px;
+}
+
+    form.jtable-dialog-form div.jtable-input-field-container:last-child {
+        border: medium none;
+    }
+
+form.jtable-dialog-form div.jtable-input-label {
+    color: #666666;
+    font-size: 1.1em;
+    padding: 2px 3px;
+}
+
+form.jtable-dialog-form div.jtable-input {
+    padding: 2px;
+}
+
+form.jtable-dialog-form div.jtable-date-input {
+}
+
+form.jtable-dialog-form div.jtable-text-input {
+}
+
+form.jtable-dialog-form span.jtable-option-text-clickable {
+    position: relative;
+    top: -2px;
+}
+
+form.jtable-dialog-form div.jtable-textarea-input textarea {
+    min-height: 60px;
+    width: 300px;
+}
+
+form.jtable-dialog-form div.jtable-checkbox-input span, form.jtable-dialog-form div.jtable-radio-input span {
+    padding-left: 4px;
+}
+
+form.jtable-dialog-form div.jtable-radio-input input, form.jtable-dialog-form div.jtable-checkbox-input input, form.jtable-dialog-form span.jtable-option-text-clickable {
+    cursor: pointer;
+}
+
+div.jtable-busy-panel-background {
+    background-color: #000000;
+    opacity: 0.1;
+    position: absolute;
+    z-index: 998;
+}
+
+div.jtable-busy-message {
+    background-color: #DDDDDD;
+    color: #000000;
+    cursor: wait;
+    font-size: 1.25em;
+    margin: 5px;
+    position: absolute;
+    z-index: 999;
+}
+
+div.jtable-contextmenu-overlay {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+div.jtable-main-container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+    div.jtable-main-container > div.jtable-title {
+        background-color: #FCFCFC;
+        padding-left: 10px;
+    }
+
+        div.jtable-main-container > div.jtable-title div.jtable-title-text {
+            color: #214365;
+            font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 34px;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        div.jtable-main-container > div.jtable-title input {
+            font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+            margin-left: 15px;
+            font-size: 13px;
+            font-weight: normal;
+            height: 22px;
+            width: 300px;
+            color: #3e527a;
+            border: 1px solid #929292;
+            float: right;
+            margin-right: 10px;
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+
+        div.jtable-main-container > div.jtable-title img {
+            vertical-align: bottom;
+        }
+
+        div.jtable-main-container > div.jtable-title .jtable-search-button {
+            margin-left: 15px;
+            width: 29px;
+            height: 24px;
+            background: url("./searchButton.png") no-repeat scroll 0 0 transparent;
+            border: 0;
+            vertical-align: middle;
+            cursor: pointer;
+            float: right;
+            margin-bottom: auto;
+            margin-top: auto;
+        }
+
+            div.jtable-main-container > div.jtable-title .jtable-search-button:hover {
+                opacity: 1;
+            }
+
+        div.jtable-main-container > div.jtable-title .jtable-close-button {
+            background: url("./close.png") no-repeat scroll 0 0 transparent;
+            bottom: 8px;
+            height: 16px;
+            opacity: 0.5;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            width: 16px;
+        }
+
+            div.jtable-main-container > div.jtable-title .jtable-close-button:hover {
+                opacity: 1;
+            }
+
+    div.jtable-main-container > table.jtable {
+        border: 1px solid #707070;
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout: fixed;
+    }
+
+div.jtable-wrap {
+    display: inline;
+    word-break: break-all;
+}
+
+div.jtable-main-container > table.jtable > thead {
+    background-color: #678490;
+}
+
+    div.jtable-main-container > table.jtable > thead th {
+        color: #FFFFFF;
+        font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        height:35px;
+    }
+
+        div.jtable-main-container > table.jtable > thead th.jtable-column-header div.jtable-column-header-container {
+            height: 35px;
+            margin-left: 4px;
+        }
+
+            div.jtable-main-container > table.jtable > thead th.jtable-column-header div.jtable-column-header-container div.jtable-column-resize-handler {
+                height: 28px;
+            }
+
+            div.jtable-main-container > table.jtable > thead th.jtable-column-header div.jtable-column-header-container span.jtable-column-header-text {
+                margin-top: 5px;
+            }
+
+.jtable-column-header-text {
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
+div.jtable-main-container > table.jtable > thead th.jtable-column-header-sortable div.jtable-column-header-container {
+    background: url("./column-sortable.png") no-repeat scroll left transparent;
+}
+
+div.jtable-main-container > table.jtable > thead th.jtable-column-header-sorted-asc div.jtable-column-header-container {
+    background: url("./column-asc.png") no-repeat scroll left transparent;
+}
+
+div.jtable-main-container > table.jtable > thead th.jtable-column-header-sorted-desc div.jtable-column-header-container {
+    background: url("./column-desc.png") no-repeat scroll left transparent;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr {
+    background-color: #FFFFFF;
+}
+
+    div.jtable-main-container > table.jtable > tbody > tr > td {
+        border: 1px solid #d0d0d0;
+        color: #373030;
+        white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+        white-space: -webkit-pre-wrap; /*Chrome & Safari */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        white-space: pre-wrap; /* css-3 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+        word-break: break-all;
+        white-space: normal;
+    }
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td {
+        padding: 4px;
+        vertical-align: central;
+        font-size: 14px;
+    }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-edit-command-button {
+            background: url("./edit.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            opacity: 0.4;
+            width: 32px;
+        }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-edit-command-button-lock {
+            background: url("./edit-lock.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            width: 16px;
+            cursor: default;
+        }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-edit-command-button:hover {
+            opacity: 0.8;
+        }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-delete-command-button {
+            background: url("./delete.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            opacity: 0.4;
+            width: 16px;
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-delete-command-button:hover {
+                opacity: 0.8;
+            }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-remove-command-button {
+            background: url("./remove.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            opacity: 0.4;
+            width: 16px;
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-remove-command-button:hover {
+                opacity: 0.8;
+            }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row > td > .jtable-delete-command-button-lock {
+            background: url("./delete-lock.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            width: 16px;
+            cursor: default;
+        }
+
+    /*       ----------------                  chield table definition       */
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield {
+        background-color: #f1ffff;
+    }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield:hover {
+            background-color: #dce2e5;
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield:hover td {
+                color: #000000;
+                font-weight: 600;
+            }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td {
+            padding: 4px;
+            vertical-align: top;
+            color: #584c4c;
+            border: 1px solid #ffffff;
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td > .jtable-edit-command-button {
+                background: url("./edit.png") no-repeat scroll 0 0 transparent;
+                height: 16px;
+                opacity: 0.4;
+                width: 16px;
+            }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td > .jtable-edit-command-button-lock {
+                background: url("./edit-lock.png") no-repeat scroll 0 0 transparent;
+                height: 16px;
+                width: 16px;
+            }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td > .jtable-edit-command-button:hover {
+                opacity: 0.8;
+            }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td > .jtable-delete-command-button {
+                background: url("./delete.png") no-repeat scroll 0 0 transparent;
+                height: 16px;
+                opacity: 0.4;
+                width: 16px;
+            }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td > .jtable-delete-command-button-lock {
+                background: url("./delete-lock.png") no-repeat scroll 0 0 transparent;
+                height: 16px;
+                width: 16px;
+            }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield > td > .jtable-delete-command-button:hover {
+                opacity: 0.8;
+            }
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield {
+        background-color: #ecf3f3;
+    }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield td {
+            color: #584c4c;
+            border: 1px solid #ffffff;
+        }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield:hover {
+            background-color: #D8F1FB
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield:hover td {
+                color: #000000;
+            }
+
+div.jtable-main-container table.jtable tbody tr.jtable-no-data-row-chield {
+    text-align: center;
+    background-color: #c4e3f0;
+}
+
+/*                  -----------------------------     */
+
+/*       ----------------                  chield table definition       */
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2 {
+    background-color: #c9eaf4;
+}
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2:hover {
+        background-color: #b4dcec;
+    }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2:hover td {
+            color: #000000;
+            font-weight: 600;
+        }
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2 > td {
+        padding: 4px;
+        vertical-align: top;
+        color: #584c4c;
+        border: 1px solid #F4F4F4;
+    }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2 > td > .jtable-edit-command-button {
+            background: url("./edit.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            opacity: 0.4;
+            width: 16px;
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2 > td > .jtable-edit-command-button:hover {
+                opacity: 0.8;
+            }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2 > td > .jtable-delete-command-button {
+            background: url("./delete.png") no-repeat scroll 0 0 transparent;
+            height: 16px;
+            opacity: 0.4;
+            width: 16px;
+        }
+
+            div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row-chield2 > td > .jtable-delete-command-button:hover {
+                opacity: 0.8;
+            }
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield2 {
+    background-color: #D8F1FB;
+}
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield2 td {
+        color: #584c4c;
+        border: 1px solid #F4F4F4;
+    }
+
+    div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield2:hover {
+        background-color: #b4dcec;
+    }
+
+        div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even-chield2:hover td {
+            color: #000000;
+            font-weight: 600;
+        }
+
+div.jtable-main-container table.jtable tbody tr.jtable-no-data-row-chield2 {
+    text-align: center;
+    background-color: #c4e3f0;
+}
+
+/*                  -----------------------------     */
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even2 {
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-even {
+    background-color: #f2f5f7;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-data-row:hover {
+    background-color: #e6ebed;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-selected {
+    background-color: #929292;
+    color: #FFFFFF;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-created {
+    background-color: #A3A3A3;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-updated {
+    background-color: #A3A3A3;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-sent-mail {
+    background-color: #6681b4;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-row-deleting {
+    background-color: #E51400;
+    color: #FFFFFF;
+}
+
+div.jtable-main-container > table.jtable > tbody > tr.jtable-child-row > td {
+    background-color: #FFFFFF;
+    padding: 0;
+}
+
+div.jtable-main-container > div.jtable-bottom-panel {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDE1E4;
+    border-color: -moz-use-text-color #707070 #707070;
+    border-image: none;
+    border-right: 1px solid #707070;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    color: #555555;
+    font-size: 13px;
+    min-height: 25px !important;
+}
+
+    div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list {
+        margin: 1px 0 0;
+    }
+
+        div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number, div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-space, div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-first, div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-last, div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-previous, div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-next, div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-active {
+            background-color: #AEB0B1;
+            color: #FFFFFF;
+            margin: 1px;
+            padding: 2px 5px;
+        }
+
+            div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number:hover,
+            div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-first:hover,
+            div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-last:hover,
+            div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-previous:hover,
+            div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-next:hover {
+                background-color: #929292;
+            }
+
+        div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-number-active {
+            background: none repeat scroll 0 0 #AEB0B1;
+            color: #CCCCCC;
+            cursor: default;
+        }
+
+        div.jtable-main-container > div.jtable-bottom-panel .jtable-page-list .jtable-page-info {
+            margin-left: 5px;
+            padding: 2px;
+        }
+
+    div.jtable-main-container > div.jtable-bottom-panel span.jtable-add-record {
+        margin: 4px;
+    }
+
+        div.jtable-main-container > div.jtable-bottom-panel span.jtable-add-record a {
+            color: #535557;
+        }
+
+form.jtable-dialog-form {
+    font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+div.jtable-busy-message {
+    background: url("./loading.gif") no-repeat scroll 8px center #4E4E4E;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-family: 'Segoe UI Semilight','Open Sans',Verdana,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 5px 5px 5px 58px;
+}
+
+.jtable-input-label-mandatory {
+    background: url("./mandatory.png") no-repeat scroll 0 0 transparent;
+    padding-left: 25px !important;
+}
+
+.jtable-input-label-standard {
+    padding-left: 25px !important;
+}
+
+.child-opener-image {
+    cursor: pointer;
+    opacity:0.6;
+}
+
+    .child-opener-image:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+
+.checkbox-column {
+    text-align: center;
+}
+
+.child-opener-image-column {
+    text-align: center;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.jtable-dialog-form {
+    min-width: 350px;
+}
+
+    .jtable-dialog-form input[type="text"], .jtable-dialog-form textarea {
+        min-width: 350px;
+    }
+
+.dateTimeInput {
+    width: 150px !important;
+    min-width: 150px !important;
+}
+
+.TimeInput {
+    width: 60px !important;
+    min-width: 60px !important;
+}
+
+.mainHead {
+    background-color: #016e8e !important;
+}
+
+.parentConteiner {
+    border-top: 2px solid #a3a7ac !important;
+    border-bottom: 1px solid #a3a7ac !important;
+    border-left: 1px solid #a3a7ac !important;
+    border-right: 1px solid #a3a7ac !important;
+}
+
+.CustomTitle {
+    background-color: #e3eefb !important;
+}
+
+    .CustomTitle div.jtable-title-text {
+        margin-bottom: 0px;
+        line-height: 20px !important;
+    }
+
+.nowrap-class {
+    white-space: nowrap;
+}
+
+.status-class {
+    font-weight: 600;
+    min-width: 50px;
+    max-width: 140px;
+}
+
+.description-box {
+    width: 500px;
+    height: 180px;
+}
+
+.send-email-box {
+    background: url("./email21.png") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    width: 21px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+    .send-email-box:hover, .mobile-box:hover, .reload-box:hover,
+    .bookmark-box:hover, .workflow-box:hover,
+    .facebook-box:hover, .emaillist-box-mini:hover, .comments-box:hover, .comments-box-mini:hover, .priviw-box:hover, .positions16-box:hover, .priviw-box-mini:hover, .positions-box:hover, .group-box:hover, .priviw-box-mini:hover, .download-box:hover, .rank-box:hover, .download-box-mini:hover {
+        opacity: 1;
+    }
+
+.mobile-box {
+    background: url("./Phone3.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.filter-box {
+    background: url("./mail_filter.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.download-box {
+    background: url("./download.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.download-box-mini {
+    background: url("./download19x19.png") no-repeat 0 0 transparent;
+    height: 19px;
+    width: 19px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.priviw-box {
+    background: url("./preview23x23.png") no-repeat 0 0 transparent;
+    height: 19px;
+    width: 19px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.bookmark-box {
+    background: url("./bookmark.png") no-repeat 0 0 transparent;
+    height: 16px;
+    width: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.priviw-box-mini {
+    background: url("./preview19x19.png") no-repeat 0 0 transparent;
+    height: 19px;
+    width: 19px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.group-box {
+    background: url("./group_edit.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.rank-box {
+    background: url("./group_rank.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.comments-box {
+    background: url("./comments.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.workflow-box {
+    background: url("./workflow.png") no-repeat 0 0 transparent;
+    height: 23px;
+    width: 23px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.comments-box-mini {
+    background: url("./comments20.png") no-repeat 0 0 transparent;
+    height: 20px;
+    width: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.emaillist-box-mini {
+    background: url("./sended.png") no-repeat 0 0 transparent;
+    height: 20px;
+    width: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.trash-box {
+    background: url("./icon_trash_warning.gif") no-repeat 0 0 transparent;
+    height: 20px;
+    width: 20px;
+}
+
+.positions-box, .positions16-box {
+    background: url("./positions.png") no-repeat 0 0 transparent;
+    margin-top: -2px;
+    height: 20px;
+    width: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.reload-box {
+    background: url("./reload.png") no-repeat 0 0 transparent;
+    height: 16px;
+    width: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 8px;
+    margin-top: 2px;
+    border: 0;
+}
+
+.facebook-box {
+    background: url("./icon-facebook.gif") no-repeat 0 0 transparent;
+    height: 19px;
+    width: 19px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.facebook-box-off {
+    background: url("./icon-facebook-off.gif") no-repeat 0 0 transparent;
+    height: 19px;
+    width: 19px;
+}
+
+form.jtable-dialog-form div.jtable-textarea-input .textarea-edit {
+    width: 500px;
+    height: 200px;
+}
+
+form.jtable-dialog-form .title-edit {
+    width: 500px;
+}
+
+.sel_d {
+    font-weight: bold;
+}
+
+div.jtable-main-container div.jtable-title table.filterDate {
+    float: right;
+    font-size: 14px;
+    width: auto;
+}
+
+    div.jtable-main-container div.jtable-title table.filterDate td {
+        margin-right: 0;
+        margin-left: 5px;
+        border: 0;
+    }
+
+        div.jtable-main-container div.jtable-title table.filterDate td input[type="text"] {
+            width: 80px;
+            margin-left: 0;
+            margin-right: 5px;
+            height: 18px;
+            text-align: center;
+        }
+
+        div.jtable-main-container div.jtable-title table.filterDate td input[type="checkbox"] {
+            width: 14px;
+            margin-left: 0;
+            margin-right: 5px;
+            border: 0;
+        }
+
+.Mini-CardLogo {
+    height: 25px;
+}
+
+.mini-mainHead {
+    background-color: #016e8e !important;
+}
+
+.Mini-CardLogo div.jtable-title-text {
+    height: 25px;
+}
+
+div.jtable-main-container > div.Mini-CardLogo div.jtable-title-text {
+    line-height: 25px;
+    margin-top: -5px;
+}
+
+form.jtable-dialog-form div.jtable-textarea-input textarea.eMailBodyClass {
+    width: 600px;
+    min-width: 600px;
+    height: 300px;
+}
+
+.jtable-dialog-form input.eMailSubjectClass {
+    width: 600px;
+}
+
+.jtable-dialog-form input.eMailTitleClass {
+    width: 600px;
+}
+
+.jtable-page-refresh {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: central;
+    background: url("./refresh16.png") no-repeat 0 0 transparent;
+    cursor: pointer;
+    opacity: 0.5;
+    border: 0;
+    border-color: transparent;
+}
+
+.jtable-refresh-command-button {
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: central;
+    background: url("./reload.png") no-repeat 0 0 transparent;
+    cursor: pointer;
+    opacity: 0.5;
+    border: 0;
+    border-color: transparent;
+}
+
+.jtable-refresh-command-button:hover {
+        opacity: 1;
+    }
+
+ .jtable-page-refresh:hover {
+     opacity: 1;
+ }
+
+.jtable-column-button {
+    opacity: 0.6;
+}
+.jtable-column-button:hover {
+    opacity: 1;
+}

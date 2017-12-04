@@ -1,0 +1,100 @@
+﻿@using System.Text
+@{
+    ViewBag.Title = "Activies ";
+}
+
+
+
+
+    <style>
+        .child-opener-image
+        {
+            cursor: pointer;
+        }
+        .child-opener-image-column
+        {
+            text-align: center;
+        }
+        .jtable-dialog-form
+        {
+            min-width: 220px;
+        }
+        .jtable-dialog-form input[type="text"]
+        {
+            min-width: 200px;
+        }
+    </style>
+
+@section Scripts {
+<script src="~/js/jquery-ui.js" @*asp-append-version="true"*@></script>
+<link href="/js/jtable/themes/vlad/jtable.css" rel="stylesheet" type="text/css" />
+<link href="~/css/jui-theme/jquery-ui-1.8.5.custom.css" rel="stylesheet" />
+<script src="~/js/jtable/vlad.jquery.jtable.js"></script>
+    }
+
+<br/>
+<br/>
+
+<div id="ActivitiesTableContainer"></div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#ActivitiesTableContainer').jtable({
+            title: 'Activite Storage Keys',
+            paging: true,
+            pageSize: 50,
+            sorting: true,
+            defaultSorting: 'Date_Create DESC',
+
+            actions: {
+                refreshRowAction: '@Url.Action("RefreshRow")',
+                listAction: '@Url.Action("GetQueList")'
+
+
+            },
+            fields: {
+
+
+
+
+                Date_Create: {
+                    title: 'Created',
+                    create: false,
+                    edit: false,
+                    sorting: true,
+                    type: 'date',
+                    displayFormat: 'dd/MM/yy HH:TT:ss',
+                    list: true,
+                    width: '15%'
+                },
+                Key: {
+                    title: 'Key',
+                    key: true,
+                    sorting: true,
+                    width: '20%'
+                }
+                ,
+                QueueCount: {
+                    title: 'Queues Count',
+                    Key: false,
+                    sorting: true,
+                    width: '10%'
+                }
+
+
+
+
+
+            }
+        });
+
+
+         $('#ActivitiesTableContainer').jtable('load');
+
+    });
+
+</script>
+<br />
+<hr />
+

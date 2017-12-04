@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "BePro";
+}
+
+@Html.Partial("_LoginForm")
+
+@section Scripts
+    {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+<recaptcha-script />
+}

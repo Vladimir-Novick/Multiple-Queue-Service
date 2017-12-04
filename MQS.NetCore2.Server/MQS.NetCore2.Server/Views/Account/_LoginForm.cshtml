@@ -1,0 +1,33 @@
+﻿@model LoginViewModel
+
+<form id="loginForm" asp-controller="Account" asp-action="Login" class="form-signin" method="post">
+
+    <h2 class="form-signin-heading">
+        Please sign in
+    </h2>
+
+    <label asp-for="User" class="sr-only"></label>
+    <input asp-for="User" type="text" class="form-control" placeholder="User code" />
+    @*<span asp-validation-for="User" class="text-danger"></span>*@
+
+    <label asp-for="Password" class="sr-only"></label>
+    <input asp-for="Password" class="form-control" placeholder = "Password" />
+    @*<span asp-validation-for="Password" class="text-danger"></span>*@
+
+    @*<div class="checkbox">
+        <label asp-for="RememberMe">
+            <input asp-for="RememberMe" />
+            @Html.DisplayNameFor(m => m.RememberMe)
+        </label>
+    </div>*@
+
+    @*recaptcha 2.0*@
+    <recaptcha />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" data-loading-text="&lt;i class=&quot;fa fa-circle-o-notch fa-spin fa-fw&quot;&gt;&lt;/i&gt;  Please wait...">
+        <span>Sign in</span>
+    </button>
+
+</form>
