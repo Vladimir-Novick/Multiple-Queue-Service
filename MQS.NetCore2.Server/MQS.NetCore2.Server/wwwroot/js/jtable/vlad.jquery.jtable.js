@@ -545,9 +545,15 @@ THE SOFTWARE.
         /* Create a cell for given field.
         *************************************************************************/
         _createCellForRecordField: function (record, fieldName) {
-            return $('<td></td>')
+           var f = $('<td></td>')
                 .addClass(this.options.fields[fieldName].listClass)
                 .append((this._getDisplayTextForRecordField(record, fieldName)));
+            var field = this.options.fields[fieldName];
+
+            if (field.type === 'number') {
+                f.css('text-align', 'right');
+            }
+            return f;
         },
 
         RefrehRow: function () {
@@ -2894,6 +2900,13 @@ THE SOFTWARE.
             var $columns = $tableRow.find('td');
             for (var i = 0; i < this._columnList.length; i++) {
                 var displayItem = this._getDisplayTextForRecordField(record, this._columnList[i]);
+
+                var fieldName = this._columnList[i];
+                var field = this.options.fields[fieldName];
+
+                if (field.type === 'number') {
+                    $columns.eq(this._firstDataColumnOffset + i).css('text-align', 'right');
+                }
            //     if ((displayItem != "") && (displayItem == 0)) displayItem = "0";
                 $columns.eq(this._firstDataColumnOffset + i).html(displayItem || '');
             }
