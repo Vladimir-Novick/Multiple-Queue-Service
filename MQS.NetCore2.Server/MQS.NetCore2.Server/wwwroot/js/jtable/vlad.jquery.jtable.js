@@ -30,6 +30,41 @@ THE SOFTWARE.
 /*
   Modified : 2017 by Vladimir Novick http://www.linkedin.com/in/vladimirnovick
 
+ New Options:
+
+    Refresh page button
+
+    data type : number
+
+    action:
+
+            refreshRowAction   - create refresh row button and define refresh row action
+
+                                      for example :
+                                             actions: {
+                                                   refreshRowAction: '/StatusQuery/RefreshRow',
+                                                   listAction: '/StatusQuery/GetQueList'
+
+
+           customRowOperation -  custom javascript action to table tr
+
+                                       for example :
+                                             actions: {
+                                                   refreshRowAction: '/StatusQuery/RefreshRow',
+                                                   listAction: '/StatusQuery/GetQueList',
+                                                   customRowOperation: makeRowCSS  //  where makeRowCSS(table_tr_object) - javascript function
+
+            customShowInfo     - custom show page message
+
+                                 for example :
+                                             actions: {
+                                                   refreshRowAction: '/StatusQuery/RefreshRow',
+                                                   listAction: '/StatusQuery/GetQueList',
+                                                   customRowOperation: makeRowCSS,  //  where makeRowCSS(table_tr_object) - javascript function
+                                                   customShowInfo: showPageInfo  //  where showPageInfo(stringMessage) - javascript function
+
+
+
 */
 
 /************************************************************************
@@ -528,7 +563,9 @@ THE SOFTWARE.
                 .data('record', record);
 
             this._addCellsToRowUsingRecord($tr);
-
+            if (this.options.actions.customRowOperation) {
+                this.options.actions.customRowOperation($tr)
+            }
             return $tr;
         },
 
@@ -556,9 +593,6 @@ THE SOFTWARE.
             return f;
         },
 
-        RefrehRow: function () {
-            alert("OK");
-        },
 
         /* Adds a list of records to the table.
         *************************************************************************/
@@ -4321,6 +4355,9 @@ THE SOFTWARE.
         _createPagingInfo: function () {
             if (this._totalRecordCount <= 0) {
                 this._$pageInfoSpan.empty();
+                if (this.options.actions.customShowInfo) {
+                    this.options.actions.customShowInfo("");
+                }
                 return;
             }
 
@@ -4331,6 +4368,9 @@ THE SOFTWARE.
             if (endNo >= startNo) {
                 var pagingInfoMessage = this._formatString(this.options.messages.pagingInfo, startNo, endNo, this._totalRecordCount);
                 this._$pageInfoSpan.html(pagingInfoMessage);
+                if (this.options.actions.customShowInfo) {
+                    this.options.actions.customShowInfo(pagingInfoMessage);
+                }
             }
         },
 
