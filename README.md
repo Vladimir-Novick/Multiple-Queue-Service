@@ -12,9 +12,11 @@ With MQS, you can quickly build message queuing applications that can run on any
 
 Simple Web admin options:
 
-![admin options](https://raw.githubusercontent.com/Vladimir-Novick/Multiple-Queue-Service/master/images/ui_task_list.png)
+![siple admin options](https://raw.githubusercontent.com/Vladimir-Novick/Multiple-Queue-Service/master/images/ui_task_list.png)
 
 TODO:
+   - Authentication procedures to allow for secure handling of data
+   - Sending and Receiving Encrypted Messages
    - Register the Service Consumers / Suppliers
    - Consumers/Suppliers role definition
    - Service usage registration
