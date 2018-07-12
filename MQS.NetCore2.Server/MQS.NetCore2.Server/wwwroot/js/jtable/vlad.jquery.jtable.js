@@ -28,8 +28,10 @@ THE SOFTWARE.
 */
 
 /*
-  Modified : 2017 by Vladimir Novick http://www.linkedin.com/in/vladimirnovick
-
+  Modified : 2014-2017/2018 by Vladimir Novick http://www.linkedin.com/in/vladimirnovick
+  
+  http://www.sgcombo.com
+  
  New Options:
 
     Refresh page button
@@ -46,7 +48,7 @@ THE SOFTWARE.
                                                    listAction: '/StatusQuery/GetQueList'
 
 
-           customRowOperation -  custom javascript action to table tr
+           customRowOperation -  custom javascript action for table tr
 
                                        for example :
                                              actions: {
@@ -62,6 +64,7 @@ THE SOFTWARE.
                                                    listAction: '/StatusQuery/GetQueList',
                                                    customRowOperation: makeRowCSS,  //  where makeRowCSS(table_tr_object) - javascript function
                                                    customShowInfo: showPageInfo  //  where showPageInfo(stringMessage) - javascript function
+
 
 
 
@@ -440,6 +443,14 @@ THE SOFTWARE.
             this._reloadTable(completeCallback);
         },
 
+        data_refresh: function () {
+            this._data_refresh();
+        },
+
+        completeRefresh: function (data) {
+            this._completeRefresh(data);
+        },
+
         /* Gets a jQuery row object according to given record key
         *************************************************************************/
         getRowByKey: function (key) {
@@ -540,10 +551,74 @@ THE SOFTWARE.
             }
         },
 
+        _completeRefresh(data) {
+            var v = "";
+            var self = this;
+            for (var i = 0; i < data.Records.length; i++) {
+                var record = data.Records[i];
+                var tr_data = $("[data-record-key='" + record.ServiceID + "']"); 
+                if (tr_data.length > 0) {
+                    var tr = $(tr_data[0]);
+                    tr.data('record', record);
+                    self._updateCellsToRowUsingRecord(tr);
+                }
+            }
+        },
+
+
+        _updateCellsToRowUsingRecord: function (row) {
+            var record = row.data('record'); 
+               for (var i = 0; i < this._columnList.length; i++) {
+                   var column = this._columnList[i];
+                   var td_ = row.find("[data-field_name='" + column + "']");
+                   if (td_.length > 0) {
+                       var f = td_[0];
+                       let newText = record[column];
+                       if (typeof  newText !== 'undefined' && newText !== null) {
+                           if (f.innerHTML != newText) {
+                               f.innerHTML = newText;
+                           }
+                       }
+                      
+                   }
+   
+               }
+
+
+        },
+
+        _data_refresh() {
+            var self = this;
+            var loadUrl = self._createDataRefreshUrl();
+
+            //Load data from server using AJAX
+            self._ajax({
+                url: loadUrl,
+                data: self._lastPostData,
+                success: function (data) {
+                    self._completeRefresh(data);
+                },
+                error: function () {
+                    self._hideBusy();
+                    self._showError(self.options.messages.serverCommunicationError);
+                }
+            });
+        },
+
         /* Creates URL to load records.
         *************************************************************************/
         _createRecordLoadUrl: function () {
             return this.options.actions.listAction;
+        },
+
+        /*  Create link for data refrwsh options */
+        _createDataRefreshUrl: function () {
+            var loadUrl = this.options.actions.refreshDataAction;
+            if (!this.options.actions.refreshDataAction) {
+                loadUrl = this.options.actions.listAction;
+            }
+            loadUrl = this._addPagingInfoToUrl(loadUrl, this._currentPageNo);
+            return loadUrl;
         },
 
         _createJtParamsForLoading: function() {
@@ -563,9 +638,7 @@ THE SOFTWARE.
                 .data('record', record);
 
             this._addCellsToRowUsingRecord($tr);
-            if (this.options.actions.customRowOperation) {
-                this.options.actions.customRowOperation($tr)
-            }
+
             return $tr;
         },
 
@@ -574,25 +647,25 @@ THE SOFTWARE.
         _addCellsToRowUsingRecord: function ($row) {
             var record = $row.data('record');
             for (var i = 0; i < this._columnList.length; i++) {
-                this._createCellForRecordField(record, this._columnList[i])
-                    .appendTo($row);
+                var td = this._createCellForRecordField(record, this._columnList[i]);
+                td.attr('data-field_name', this._columnList[i]);
+                td.appendTo($row);
             }
         },
+
+
 
         /* Create a cell for given field.
         *************************************************************************/
         _createCellForRecordField: function (record, fieldName) {
-           var f = $('<td></td>')
+            return $('<td></td>')
                 .addClass(this.options.fields[fieldName].listClass)
                 .append((this._getDisplayTextForRecordField(record, fieldName)));
-            var field = this.options.fields[fieldName];
-
-            if (field.type === 'number') {
-                f.css('text-align', 'right');
-            }
-            return f;
         },
 
+        RefrehRow: function () {
+            alert("OK");
+        },
 
         /* Adds a list of records to the table.
         *************************************************************************/
@@ -602,11 +675,15 @@ THE SOFTWARE.
 
             $.each(records, function (index, record) {
                 $tr = self._createRowFromRecord(record);
-
+               
+               
                 self._addCellsToRefreshRecord($tr);
                 self._addRow($tr);
-
+               
+              
             });
+
+           
 
             self._refreshRowStyles();
         },
@@ -1374,6 +1451,7 @@ THE SOFTWARE.
 
 }(jQuery));
 
+
 /************************************************************************
 * Some UTULITY methods used by jTable                                   *
 *************************************************************************/
@@ -1533,6 +1611,7 @@ THE SOFTWARE.
     }
 
 })(jQuery);
+
 
 /************************************************************************
 * FORMS extension for jTable (base for edit/create forms)               *
@@ -1804,6 +1883,7 @@ THE SOFTWARE.
                 dependedValues[dependedField] = $dependsOn.val();
             }
 
+
             return dependedValues;
         },
 
@@ -2016,6 +2096,7 @@ THE SOFTWARE.
     });
 
 })(jQuery);
+
 
 /************************************************************************
 * CREATE RECORD extension for jTable                                    *
@@ -2366,6 +2447,7 @@ THE SOFTWARE.
 
 })(jQuery);
 
+
 /************************************************************************
 * EDIT RECORD extension for jTable                                      *
 *************************************************************************/
@@ -2411,6 +2493,7 @@ THE SOFTWARE.
         *************************************************************************/
         _create: function () {
             base._create.apply(this, arguments);
+
 
             if (!this.options.actions.updateAction) {
                 return;
@@ -2478,6 +2561,8 @@ THE SOFTWARE.
                 self._saveEditForm($editForm, $saveButton);
             }
         },
+
+
 
         /************************************************************************
 * PUBLIC METHODS                                                        *
@@ -2716,6 +2801,9 @@ THE SOFTWARE.
             }
         },
 
+
+       
+
         /*  Overrides base method to add a 'refresh command cell' to a row.
                 *************************************************************************/
         _addCellsToRefreshRecord: function ($row) {
@@ -2737,6 +2825,7 @@ THE SOFTWARE.
                     .appendTo($row);
             }
         },
+
 
         _RefreshRecordFromServer: function ($row) {
             var $self = this;
@@ -2764,7 +2853,10 @@ THE SOFTWARE.
                       }
                   });
 
+
         },
+
+
 
         /************************************************************************
         * PRIVATE METHODS                                                       *
@@ -2868,6 +2960,7 @@ THE SOFTWARE.
                 self._$editDiv.dialog("close");
             };
 
+
             //updateAction may be a function, check if it is
             if ($.isFunction(self.options.actions.updateAction)) {
 
@@ -2934,13 +3027,6 @@ THE SOFTWARE.
             var $columns = $tableRow.find('td');
             for (var i = 0; i < this._columnList.length; i++) {
                 var displayItem = this._getDisplayTextForRecordField(record, this._columnList[i]);
-
-                var fieldName = this._columnList[i];
-                var field = this.options.fields[fieldName];
-
-                if (field.type === 'number') {
-                    $columns.eq(this._firstDataColumnOffset + i).css('text-align', 'right');
-                }
            //     if ((displayItem != "") && (displayItem == 0)) displayItem = "0";
                 $columns.eq(this._firstDataColumnOffset + i).html(displayItem || '');
             }
@@ -2976,6 +3062,7 @@ THE SOFTWARE.
     });
 
 })(jQuery);
+
 
 /************************************************************************
 * DELETION extension for jTable                                         *
@@ -3410,6 +3497,7 @@ THE SOFTWARE.
 
 })(jQuery);
 
+
 /************************************************************************
 * SELECTING extension for jTable                                        *
 *************************************************************************/
@@ -3793,6 +3881,7 @@ THE SOFTWARE.
 
 })(jQuery);
 
+
 /************************************************************************
 * PAGING extension for jTable                                           *
 *************************************************************************/
@@ -3851,6 +3940,9 @@ THE SOFTWARE.
 
         /* Overrides base method to do paging-specific constructions.
         *************************************************************************/
+
+
+
 
         _create: function() {
             base._create.apply(this, arguments);
@@ -4174,6 +4266,8 @@ THE SOFTWARE.
             }
         },
 
+
+
         /* Overrides _onRecordsLoaded method to to do paging specific tasks.
         *************************************************************************/
         _onRecordsLoaded: function (data) {
@@ -4355,9 +4449,6 @@ THE SOFTWARE.
         _createPagingInfo: function () {
             if (this._totalRecordCount <= 0) {
                 this._$pageInfoSpan.empty();
-                if (this.options.actions.customShowInfo) {
-                    this.options.actions.customShowInfo("");
-                }
                 return;
             }
 
@@ -4368,9 +4459,6 @@ THE SOFTWARE.
             if (endNo >= startNo) {
                 var pagingInfoMessage = this._formatString(this.options.messages.pagingInfo, startNo, endNo, this._totalRecordCount);
                 this._$pageInfoSpan.html(pagingInfoMessage);
-                if (this.options.actions.customShowInfo) {
-                    this.options.actions.customShowInfo(pagingInfoMessage);
-                }
             }
         },
 
@@ -4403,6 +4491,7 @@ THE SOFTWARE.
     });
 
 })(jQuery);
+
 
 /************************************************************************
 * SORTING extension for jTable                                          *
@@ -4990,6 +5079,7 @@ THE SOFTWARE.
             //Find data columns
             var headerCells = this._$table.find('>thead th.jtable-column-header');
 
+
             var pixelesFields = 0;
 
             headerCells.each(function () {
@@ -5001,6 +5091,8 @@ THE SOFTWARE.
                     }
                 }
             });
+
+           
 
             //Calculate total width of data columns
             var totalWidthInPixel = 0;
@@ -5103,6 +5195,7 @@ THE SOFTWARE.
     });
 
 })(jQuery);
+
 
 /************************************************************************
 * MASTER/CHILD tables extension for jTable                              *
