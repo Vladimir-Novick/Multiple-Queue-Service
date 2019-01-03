@@ -1,5 +1,5 @@
 # Multiple-Queue-Service
-Multiple Queue Service ( MQS ) with multiple consumers. Build as .Net Core 2.1 Web Application
+Multiple Queue Service ( MQS ) with multiple consumers. Build as .Net Core 2.2 MVC Web Application
 
 Multiple Queue Service ( MQS ) is a fully managed message queuing service that makes it easy to decouple and scale micro-services, 
 distributed systems, and server-less applications.
@@ -31,7 +31,7 @@ vlad.novick@gmail.com , http://www.sgcombo.com , https://github.com/Vladimir-Nov
 		 
 # License	
 
-		Copyright (C) 2016-2018 by Vladimir Novick http://www.linkedin.com/in/vladimirnovick 
+		Copyright (C) 2016-2019 by Vladimir Novick http://www.linkedin.com/in/vladimirnovick 
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy
 		of this software and associated documentation files (the "Software"), to deal
